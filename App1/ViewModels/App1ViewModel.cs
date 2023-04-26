@@ -10,11 +10,11 @@ namespace App1.ViewModels
   public partial class App1ViewModel : ObservableObject
   {
     //编译完成在终端运行：
-    //assemblyalias --target-directory "D:\Users\fantasy\Desktop\AliasTest\App1\bin" --suffix _App1 --assemblies-to-alias "Newtonsoft*"
+    //assemblyalias --target-directory "D:\Users\fantasy\Desktop\AliasTest\App1\bin" --suffix _App1 --assemblies-to-alias "Newtonsoft*;DevExpress*"
 
 
     [ObservableProperty]
-    private string keyword = "Newtonsoft";
+    private string keyword = "DevExpress";
     public string Json
     {
       get
@@ -33,7 +33,8 @@ namespace App1.ViewModels
       get
       {
         var jsons = Thread.GetDomain().GetAssemblies().Where(x => x.GetName().Name.Contains(Keyword)).OrderBy(x => x.ImageRuntimeVersion).ToList();
-        return Json + "\n\r" + string.Join(";\n\r", jsons.Select(x => x.GetName().ToString() +":\n\t" +x.CodeBase.ToString()));
+        var info = string.Join(";\n", jsons.Select(x => x.GetName().ToString() + ":\n\t" + x.CodeBase.ToString()));
+        return UseJson ? Json + ":\n" + info : info;
       }
     }
 

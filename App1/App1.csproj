@@ -55,6 +55,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="DevExpress.Wpf.Core" Version="19.1.5" />
         <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
         <PackageReference Include="Nice3point.Revit.Toolkit" Version="$(RevitVersion).*" />
         <PackageReference Include="Nice3point.Revit.Extensions" Version="$(RevitVersion).*" />
@@ -76,6 +77,10 @@
 
     <ItemGroup>
         <Folder Include="ViewModels\Objects" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Web" />
     </ItemGroup>
 
     <Target Name="CopyFiles" AfterTargets="CoreBuild">

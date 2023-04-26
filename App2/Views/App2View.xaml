@@ -5,6 +5,7 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:viewModel="clr-namespace:App2.ViewModels"
+  xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
   mc:Ignorable="d"
   d:DataContext="{d:DesignInstance viewModel:App2ViewModel}"
   WindowStartupLocation="CenterScreen"
@@ -13,10 +14,23 @@
   Height="450"
   Width="800">
   <Grid>
-    <ScrollViewer>
+    <Grid.RowDefinitions>
+      <RowDefinition
+        Height="30" />
+      <RowDefinition
+        Height="*" />
+    </Grid.RowDefinitions>
+    <StackPanel
+      Grid.Row="0">
+      <dxe:TextEdit
+        Text="AAA" />
+    </StackPanel>
+    <ScrollViewer
+      Grid.Row="1"
+      Margin="10">
       <TextBlock
         Text="{Binding AssembliesName,UpdateSourceTrigger=PropertyChanged}"
-        VerticalAlignment="Center"
+        VerticalAlignment="Top"
         HorizontalAlignment="Center" />
     </ScrollViewer>
   </Grid>

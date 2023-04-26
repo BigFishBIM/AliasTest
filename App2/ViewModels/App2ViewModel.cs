@@ -6,10 +6,10 @@ namespace App2.ViewModels
   public partial class App2ViewModel : ObservableObject
   {
     //编译完成在终端运行：
-    //assemblyalias --target-directory "D:\Users\fantasy\Desktop\AliasTest\App2\bin" --suffix _App2 --assemblies-to-alias "Newtonsoft*"
+    //assemblyalias --target-directory "D:\Users\fantasy\Desktop\AliasTest\App2\bin" --suffix _App2 --assemblies-to-alias "Newtonsoft*;DevExpress*"
 
     [ObservableProperty]
-    private string keyword = "Newtonsoft";
+    private string keyword = "DevExpress";
     public string Json
     {
       get
